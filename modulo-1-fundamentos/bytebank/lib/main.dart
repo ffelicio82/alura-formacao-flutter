@@ -2,22 +2,26 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(
-    /*
-     * Esse widget envolverá todos os outros componentes que adicionarmos, e é
-     * responsável pelos comportamentos esperados por padrão nessa implementação,
-     * seja na parte de navegação, transição e assim por diante.
-     */
     MaterialApp(
-      // home: indica o widget que irá representar a primeira tela
-      // Scaffold: permite implementar toda a estrutura básica (ou esqueleto) do Material Design
+      // remove o banner de debug do app
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Transferências'),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {}, // obrigado a passar
-          // permite definir o conteúdo do FloatingActionButton
+          onPressed: () {},
           child: const Icon(Icons.add),
+        ),
+        // O widget Card é um container para outros conteúdos
+        body: const Card(
+          // ListTile: componente responsável por criar estruturas de listas.
+          child: ListTile(
+            // leading: conteúdo principal (pode ser qualquer widget)
+            leading: Icon(Icons.monetization_on),
+            title: Text('100.00'),
+            subtitle: Text('1000'),
+          ),
         ),
       ),
     ),
